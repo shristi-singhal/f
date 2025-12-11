@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoTrack - Building a Cleaner Tomorrow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #2d7a3e;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .logo::before {
+            content: "♻";
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .get-started {
+            background-color: #4CAF50;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #2d7a3e;
+            color: white;
+            padding: 4rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .hero-image {
+            background-color: #e8f5e9;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 5%;
+            background-color: #f5f5f5;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            color: #666;
+            background-color: #b8c9b8;
+            display: inline-block;
+            padding: 0.5rem 2rem;
+            border-radius: 25px;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: #e8e8e8;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #555;
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 5%;
+            background-color: #d4f1d4;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            position: relative;
+            background-color: #333;
+            border-radius: 15px;
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .satisfaction-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #5a7a5a;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-align: center;
+        }
+
+        .features-list {
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-item h4::before {
+            content: "●";
+            color: #2d7a3e;
+            font-size: 1.5rem;
+        }
+
+        /* Recycling Guide */
+        .recycling-guide {
+            padding: 4rem 5%;
+            background-color: white;
+        }
+
+        .recycling-guide h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .recycling-guide .subtitle {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 3rem;
+            color: #555;
+        }
+
+        .recycling-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .recycling-card {
+            background-color: #e8d4f8;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .recycling-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .recycling-card h4 {
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .recycling-card ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .recycling-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .recycling-card li::before {
+            content: "✓ ";
+            color: #2d7a3e;
+            font-weight: bold;
+        }
+
+        .recycling-card .avoid li::before {
+            content: "✗ ";
+            color: #c33;
+        }
+
+        /* Tips Section */
+        .tips {
+            padding: 4rem 5%;
+            background-color: #f5f5dc;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .tips h2 {
+            font-size: 2rem;
+            color: #c33;
+            margin-bottom: 2rem;
+            text-decoration: underline;
+        }
+
+        .tip-item {
+            margin-bottom: 2rem;
+        }
+
+        .tip-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-item p {
+            color: #555;
+        }
+
+        .tips-image {
+            background-color: #a8c8d8;
+            border-radius: 15px;
+            height: 400px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 5%;
+            background-color: #d8d8c8;
+        }
+
+        .contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-subtitle {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            color: #c33;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card a {
+            color: #2d7a3e;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-form-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 25px;
+            background-color: white;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            border-radius: 15px;
+        }
+
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .info-boxes {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-box {
+            background-color: #a8c8a8;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .info-box h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-box table {
+            width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .info-box td {
+            padding: 1rem;
+        }
+
+        .emergency-box {
+            background-color: #a8c8a8;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .emergency-btn {
+            background-color: #000;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a2332;
+            color: white;
+            padding: 3rem 5%;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-about h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-about h3::before {
+            content: "♻";
+            font-size: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #4267B2;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .newsletter-input {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .newsletter-input input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 2px solid #5a6a8a;
+            border-radius: 5px;
+            background-color: transparent;
+            color: white;
+        }
+
+        .subscribe-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #3a4a5a;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero,
+            .about-content,
+            .services-grid,
+            .recycling-grid,
+            .contact-methods,
+            .contact-form-section,
+            .tips,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">EcoTrack</div>
+        <nav>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#guide">Recycling Guide</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="get-started">📞 Get Started</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h1>Building a Cleaner Tomorrow</h1>
+            <p>Professional waste collection, recycling, and disposal services for homes and businesses. Join us in creating a sustainable future.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary">Our Services</button>
+                <button class="btn-secondary">Schedule Pickups</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div style="text-align: center; color: #666;">🚛 Waste Collection Truck</div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div style="text-align: center;">
+            <span class="section-title">Our services</span>
+        </div>
+        <h2>Complete Waste Management Solutions</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Residential Collection</h3>
+                <p>Weekly curbside pickup for households with customizable bin sizes and recycling options.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Commercial Services</h3>
+                <p>Tailored waste management solutions for businesses, offices, and industrial facilities.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">♻️</div>
+                <h3>Recycling Programs</h3>
+                <p>Comprehensive recycling services for paper, plastic, glass, metal, and electronics.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🌱</div>
+                <h3>Composting</h3>
+                <p>Organic waste collection and composting services to reduce landfill impact.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🗑️</div>
+                <h3>Residential Collection</h3>
+                <p>Special collection for large items, construction debris, and seasonal cleanouts.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚛</div>
+                <h3>Roll-Off Dumpsters</h3>
+                <p>Temporary dumpster rentals for construction projects and major renovations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <span class="section-title">About Us</span>
+        </div>
+        <div class="about-content">
+            <div>
+                <h2>Leading the Way in Sustainable Waste Solutions</h2>
+                <p>For over 25 years, Eco Waste Solutions has been committed to reducing environmental impact through innovative waste management and recycling programs.</p>
+                <p>We believe that proper waste management is essential for creating sustainable communities. Our team works tirelessly to provide reliable services while maximizing recycling rates and minimizing landfill waste. From residential neighborhoods to large commercial facilities, we deliver solutions that make a real difference.</p>
+                
+                <div class="features-list">
+                    <div class="feature-item">
+                        <h4>Advanced Recycling Technology</h4>
+                        <p>State-of-the-art sorting facilities that maximize material recovery.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Eco-Friendly Fleet</h4>
+                        <p>Low-emission vehicles reducing our carbon footprint.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Community Education</h4>
+                        <p>Programs to help communities improve their recycling habits.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <div style="height: 100%; display: flex; align-items: center; justify-content: center; color: white;">
+                    🌲 Forest Image
+                </div>
+                <div class="satisfaction-badge">
+                    <div style="font-size: 1.5rem; font-weight: bold;">100%</div>
+                    <div>Customer Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recycling Guide -->
+    <section class="recycling-guide" id="guide">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <span class="section-title" style="background-color: #b8d4b8;">RECYCLING GUIDE</span>
+        </div>
+        <h2>What Can Be Recycled?</h2>
+        <p class="subtitle">A quick guide to help you recycle correctly and reduce contamination in our recycling streams.</p>
+        
+        <div class="recycling-grid">
+            <div class="recycling-card">
+                <h3 style="color: #5a8ab8;">Paper & Cardboard</h3>
+                <h4>Accepted</h4>
+                <ul>
+                    <li>Newspapers & magazines</li>
+                    <li>Office paper</li>
+                    <li>Cardboard boxes</li>
+                    <li>Paper bags</li>
+                </ul>
+                <h4 class="avoid">Avoid</h4>
+                <ul class="avoid">
+                    <li>Waxed paper</li>
+                    <li>Pizza boxes with grease</li>
+                </ul>
+            </div>
+            
+            <div class="recycling-card">
+                <h3 style="color: #8a5a8a;">Plastics</h3>
+                <h4>Accepted</h4>
+                <ul>
+                    <li>Water bottles</li>
+                    <li>Food containers</li>
+                    <li>Milk jugs</li>
+                    <li>Detergent bottles</li>
+                </ul>
+                <h4 class="avoid">Avoid</h4>
+                <ul class="avoid">
+                    <li>Plastic bags</li>
+                    <li>Styrofoam</li>
+                    <li>Bubble wrap</li>
+                </ul>
+            </div>
+            
+            <div class="recycling-card">
+                <h3 style="color: #6a6a6a;">Glass</h3>
+                <h4>Accepted</h4>
+                <ul>
+                    <li>Bottles</li>
+                    <li>Jars</li>
+                    <li>Food containers</li>
+                </ul>
+                <h4 class="avoid">Avoid</h4>
+                <ul class="avoid">
+                    <li>Window glass</li>
+                    <li>Mirrors</li>
+                    <li>Light bulbs</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips">
+        <div>
+            <h2>Quick Recycling Tips</h2>
+            
+            <div class="tip-item">
+                <h3>Empty & Rinse</h3>
+                <p>Clean containers before recycling to prevent contamination.</p>
+            </div>
+            
+            <div class="tip-item">
+                <h3>Remove Lids</h3>
+                <p>Separate lids from containers for proper processing.</p>
+            </div>
+            
+            <div class="tip-item">
+                <h3>Don't Bag Recyclables</h3>
+                <p>Place items loose in your recycling bin, not in plastic bags.</p>
+            </div>
+            
+            <div class="tip-item">
+                <h3>When in Doubt, Throw it Out</h3>
+                <p>If you're unsure, it's better to dispose of it as trash.</p>
+            </div>
+        </div>
+        <div class="tips-image">
+            <div style="height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem;">
+                🗑️ 🗑️ 🗑️ 🗑️
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <span class="section-title" style="background-color: #b8c8b8;">Contact Us</span>
+        </div>
+        <h2>Get in Touch</h2>
+        <p class="contact-subtitle">Ready to start your waste management service? Have questions? We're here to help.</p>
+        
+        <div class="contact-methods">
+            <div class="contact-card">
+                <div class="contact-icon">📞</div>
+                <h3>Phone</h3>
+                <p>Call us during business hours</p>
+                <a href="tel:1-800-ECO-WASTE">1-800-ECO-WASTE</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <h3>Email</h3>
+                <p>Send us a message anytime</p>
+                <a href="mailto:info@ecowaste.com">info@ecowaste.com</a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <h3>Location</h3>
+                <p>Visit our main office</p>
+                <a href="#">123 Green Street<br>Eco City, EC 12345</a>
+            </div>
+        </div>
+
+        <div class="contact-form-section">
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" placeholder="TOSHI" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address *</label>
+                        <input type="email" placeholder="abcd1818@gmail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="9812125495">
+                    </div>
+                    <div class="form-group">
+                        <label>Service Type *</label>
+                        <select required>
+                            <option>Select a Service</option>
+                            <option>Residential Collection</option>
+                            <option>Commercial Services</option>
+                            <option>Recycling Programs</option>
+                            <option>Composting</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <textarea placeholder="Tell us about your waste management needs........" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+
+            <div class="info-boxes">
+                <div class="info-box">
+                    <h4>🕐 Operating hours</h4>
+                    <table>
+                        <tr>
+                            <td><strong>Monday - Friday</strong></td>
+                            <td>7:00 AM - 6:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SATURDAY</strong></td>
+                            <td>8:00 AM - 4:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SUNDAY</strong></td>
+                            <td>CLOSED</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="emergency-box">
+                    <h4>Emergency Service</h4>
+                    <p>Need immediate assistance? Our emergency hotline is available 24/7 for urgent waste management issues.</p>
+                    <button class="emergency-btn">Call Emergency Line</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>EcoTrack</h3>
+                <p>Building a cleaner, more sustainable tomorrow through innovative waste management solutions.</p>
+                <div class="social-links">
+                    <div class="social-icon" style="background-color: #4267B2;">f</div>
+                    <div class="social-icon" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);">📷</div>
+                    <div class="social-icon" style="background-color: #0077b5;">in</div>
+                    <div class="social-icon" style="background-color: #000;">𝕏</div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#">Residential Collection</a></li>
+                    <li><a href="#">Commercial Services</a></li>
+                    <li><a href="#">Recycling Programs</a></li>
+                    <li><a href="#">Composting</a></li>
+                    <li><a href="#">Bulk Waste Removal</a></li>
+                    <li><a href="#">Roll-Off Dumpsters</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Recycling Guide</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Service Areas</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Subscribe to receive updates and recycling tips.</p>
+                <div class="newsletter-input">
+                    <input type="email" placeholder="Your Email">
+                </div>
+                <button class="subscribe-btn" style="width: 100%; margin-top: 0.5rem;">Subscribe</button>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 EcoWaste Solutions. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Site Map</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
